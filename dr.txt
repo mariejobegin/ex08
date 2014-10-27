@@ -1,0 +1,36 @@
+ex08
+
+15/20
+
+pubspec.yaml: mettre à jour le contenu
+
+-1
+.gitignore manquant
+
+8.1
+
+-1 GIVEN ASSOCIATION
+Sort the list of members of a GIVEN ASSOCIATION first by the last name, 
+then by the first name.
+
+-1
+SortByNames(var names) {
+-->
+sortByNames(List names) {
+
+FindNamesStartingWith(var associations, String startingLetter) {
+-->
+findNamesStartingWith(List associations, String startingLetter) {
+
+-1
+SVPL, pas d'impression (print) en fonctions de la bibliothèque (library)
+
+8.2
+
+Maintain the model by providing additions, removals and updates of entities.
+-1
+question2() :
+additions, removals and updates: Member
+additions, removals and updates: Association
+additions, removals and updates: Membership
+
