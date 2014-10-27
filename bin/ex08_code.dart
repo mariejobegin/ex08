@@ -55,10 +55,24 @@ question2(){
   membership.association = model.associations.find("On Dart");
   membership.member = member;
   membership.description = 'develop projects';
-  model.associations.find("On Dart").memberships.add(membership);
+  membership.association.memberships.add(membership);
   member.memberships.add(membership);
   
-  // Enlevé un membre
+  //Ajout d'une association
+  membership = new Membership();
+  membership.association = model.associations.find("Learning Dart");
+  membership.member = model.members.find("ivo.balbaert@telenet.be");
+  membership.description = 'improve dart project';
+  membership.association.memberships.add(membership);
+  membership.member.memberships.add(membership);
+  
+  // Enlever un membre et ses associations
+  member = model.members.find("ivo.balbaert@telenet.be");
+  
+  for (Membership m in member.memberships ){
+    m.association.memberships.remove(m);
+  }
+  
   model.members.remove(model.members.find("ivo.balbaert@telenet.be"));
   
   // Changement d'un donnée
