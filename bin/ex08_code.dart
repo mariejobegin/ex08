@@ -1,5 +1,5 @@
-import 'package:association/association.dart';
-import 'package:association/ex08_functions.dart';
+import 'package:Exercice08/association.dart';
+import 'package:Exercice08/ex08_functions.dart';
 
 question1() {
   
@@ -22,14 +22,24 @@ question1() {
   print("");
   print("Question 1");
   print("");
-  for (var element in associations) {
-    print(element["description"] + " (" + element["name"] + "):");
-    SortByNames(element["members"]);
+  
+  // Tri de l'association IS
+  SortByNames(associations, "IS");
+
+  for (Map association in associations) {
+    
+    print(association["description"] + " (" + association["name"] + "):");
+
+    for (Map element in association["members"])
+     print(element);
+
   }
   
   print("");
   print("Noms commençant par 'B':");
-  FindNamesStartingWith(associations,"B");
+  
+  for (var name in FindNamesStartingWith(associations,"B"))
+    print(name);
   
 }
 
@@ -51,6 +61,7 @@ question2(){
   member.email = 'marie-jo.begin@ulaval.ca';
   model.members.add(member);
 
+  //Ajout d'une inscription
   var membership = new Membership();
   membership.association = model.associations.find("On Dart");
   membership.member = member;
@@ -66,6 +77,7 @@ question2(){
   membership.association.memberships.add(membership);
   membership.member.memberships.add(membership);
   
+ 
   // Enlever un membre et ses associations
   member = model.members.find("ivo.balbaert@telenet.be");
   
@@ -75,8 +87,24 @@ question2(){
   
   model.members.remove(model.members.find("ivo.balbaert@telenet.be"));
   
-  // Changement d'un donnée
-  model.associations.find('Learning Dart').description = 'Learning Dark with Dzenan';  
+  // Enlever une inscription
+  membership = model.associations.find("On Dart").memberships.find("On Dart", "dzenanr@gmail.com");
+  model.associations.find("On Dart").memberships.remove(membership);
+  model.members.find("dzenanr@gmail.com").memberships.remove(membership);
+  
+  // Enlever une association
+  model.associations.remove(model.associations.find("Learning Dart"));
+  model.members.find("dzenanr@gmail.com").memberships.remove(model.members.find("dzenanr@gmail.com").memberships.find("Learning Dart", "dzenanr@gmail.com"));
+  
+  
+  // Changement d'un membre
+  model.members.find("marie-jo.begin@ulaval.ca").email = "petite.chikita@gmail.com";
+  
+  // Changement d'une inscription
+  model.members.find("petite.chikita@gmail.com").memberships.find("On Dart", "petite.chikita@gmail.com").description = "Changing membership";
+  
+  // Changement d'une association
+  model.associations.find('On Dart').description = 'On Dart with Dzenan'; 
   
   model.display();
   

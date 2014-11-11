@@ -1,6 +1,6 @@
-name: association
+name: Exercice08
 version: 0.0.1
-author: Dzenan Ridjanovic <dzenanr@gmail.com>
+author: Marie-Jo Bégin <petite.chikita@gmail.com>
 description: Simple model with one many-to-many relationship.
 homepage: http://ondart.me/
 dependencies:
