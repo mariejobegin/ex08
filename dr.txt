@@ -1,5 +1,17 @@
 ex08
 
+18/20
+
+-1
+.gitignore manquant
+
+-1
+SortByNames(List associations, String name) {
+-->
+sortByNames(List associations, String name) {
+
+---
+
 15/20
 
 pubspec.yaml: mettre à jour le contenu
